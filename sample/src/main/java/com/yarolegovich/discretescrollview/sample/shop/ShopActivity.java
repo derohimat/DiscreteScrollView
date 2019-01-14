@@ -52,9 +52,12 @@ public class ShopActivity extends AppCompatActivity implements DiscreteScrollVie
         itemPicker.addOnItemChangedListener(this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(new ShopAdapter(data));
         itemPicker.setAdapter(infiniteAdapter);
-        itemPicker.setItemTransitionTimeMillis(DiscreteScrollViewOptions.getTransitionTime());
+        itemPicker.setClickable(true);
+        itemPicker.setSlideOnFling(true);
+        itemPicker.setClampTransformProgressAfter(2);
+        itemPicker.setItemTransitionTimeMillis(100);
         itemPicker.setItemTransformer(new ScaleTransformer.Builder()
-                .setMinScale(0.8f)
+                .setMinScale(1.0f)
                 .build());
 
         onItemChanged(data.get(0));
